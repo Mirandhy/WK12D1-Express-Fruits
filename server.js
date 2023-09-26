@@ -49,10 +49,22 @@ app.get('/fruits/seed', async (req,res) => {
           readyToEat:false
       },
       {
-          name:'mango',
-          color:'yellow',
-          readyToEat:true
+          name:'asparagus',
+          color:'green',
+          readyToEat:false
+      },
+      {
+        name:'banana',
+        color:'yellow',
+        readyToEat:true
+      },
+      {
+        name:'mango',
+        color:'yellow',
+        readyToEat:true
       }
+
+      
     ]);
     res.redirect('/fruits');
   }catch(err) {
@@ -143,6 +155,42 @@ app.post("/fruits", async (req, res)=> {
   }
 });
 
+app.get('/vegetables/seed', async (req,res) => {
+  try {
+    await Vegetable.create([
+        {
+          name:'apple',
+          color:'green',
+          readyToEat:true
+      },
+      {
+          name:'soursop',
+          color:'yellow',
+          readyToEat:false
+      },
+      {
+          name:'asparagus',
+          color:'green',
+          readyToEat:false
+      },
+      {
+        name:'banana',
+        color:'yellow',
+        readyToEat:true
+      },
+      {
+        name:'mango',
+        color:'yellow',
+        readyToEat:true
+      }
+
+      
+    ]);
+    res.redirect('/vegetables');
+  }catch(err) {
+    res.status(400).send(err);
+  }
+})
 
 app.post("/vegetables", async (req, res)=> {
   try {
